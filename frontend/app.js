@@ -12,6 +12,7 @@ const tags = document.getElementById("tags");
 const dropzone = document.getElementById("dropzone");
 
 const MAX_FILE_SIZE = 8 * 1024 * 1024;
+const API_BASE = window.API_BASE_URL || "http://localhost:8000";
 let selectedFile = null;
 
 const setStatus = (text, isError = false) => {
@@ -102,7 +103,7 @@ analyzeBtn.addEventListener("click", async () => {
   formData.append("image", selectedFile);
 
   try {
-    const response = await fetch("http://localhost:8000/analyze", {
+    const response = await fetch(`${API_BASE}/analyze`, {
       method: "POST",
       body: formData,
     });
