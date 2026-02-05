@@ -12,7 +12,7 @@ const tags = document.getElementById("tags");
 const dropzone = document.getElementById("dropzone");
 
 const MAX_FILE_SIZE = 8 * 1024 * 1024;
-const API_BASE = "https://backend-production-008fd.up.railway.app" || "http://localhost:8000";
+const API_BASE = "https://backend-production-008fd.up.railway.app";
 let selectedFile = null;
 
 const setStatus = (text, isError = false) => {
