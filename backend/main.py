@@ -13,13 +13,14 @@ MAX_FILE_SIZE = 8 * 1024 * 1024
 ALLOWED_MIME_TYPES = {"image/jpeg", "image/png", "image/webp"}
 load_dotenv()
 
-MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1")
+MODEL = os.getenv("OPENAI_MODEL")
+railway_backend_origin = os.getenv("BACKEND_ORIGIN")
 
 app = FastAPI(title="Maintenance Fault Identification")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_origins=["http://localhost:5173", "http://localhost:3000",railway_backend_origin],
     allow_credentials=True,
     allow_methods=["*"] ,
     allow_headers=["*"],
