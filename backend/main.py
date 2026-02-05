@@ -13,11 +13,11 @@ MAX_FILE_SIZE = 8 * 1024 * 1024
 ALLOWED_MIME_TYPES = {"image/jpeg", "image/png", "image/webp"}
 load_dotenv()
 
-MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1")
+MODEL = os.getenv("OPENAI_MODEL")
 
 app = FastAPI(title="Maintenance Fault Identification")
 
-default_origins = ["http://localhost:5173", "http://localhost:3000"]
+default_origins = ["http://localhost:5173", "http://localhost:3000","https://frontend-production-fde4.up.railway.app"]
 env_origins = os.getenv("FRONTEND_ORIGINS", "")
 legacy_origin = os.getenv("RAILWAY_FRONTEND_ORIGIN", "")
 
