@@ -10,6 +10,7 @@ const confidenceValue = document.getElementById("confidenceValue");
 const analysisStatus = document.getElementById("analysisStatus");
 const tags = document.getElementById("tags");
 const dropzone = document.getElementById("dropzone");
+const errorTrace = document.getElementById("errorTrace");
 
 const MAX_FILE_SIZE = 8 * 1024 * 1024;
 const API_BASE = "https://backend-production-008fd.up.railway.app";
@@ -32,6 +33,8 @@ const resetResults = () => {
   confidenceValue.textContent = "--";
   analysisStatus.textContent = "Idle";
   tags.innerHTML = "";
+  errorTrace.textContent = "";
+  errorTrace.classList.remove("visible");
 };
 
 const setFile = (file) => {
@@ -110,7 +113,7 @@ analyzeBtn.addEventListener("click", async () => {
 
     if (!response.ok) {
       const errorText = await response.text();
-      throw new Error(errorText || "Analysis failed");
+      throw new Error(errorText || `Request failed with ${response.status}`);
     }
 
     const data = await response.json();
@@ -121,7 +124,10 @@ analyzeBtn.addEventListener("click", async () => {
     setStatus("Analysis complete. Review and edit the summary.");
   } catch (error) {
     analysisStatus.textContent = "Error";
-    setStatus(error.message || "Something went wrong.", true);
+    const message = error?.message || "Something went wrong.";
+    setStatus(message, true);
+    errorTrace.textContent = error?.stack || message;
+    errorTrace.classList.add("visible");
   } finally {
     analyzeBtn.disabled = false;
   }
