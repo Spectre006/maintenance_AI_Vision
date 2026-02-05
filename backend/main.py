@@ -14,7 +14,7 @@ ALLOWED_MIME_TYPES = {"image/jpeg", "image/png", "image/webp"}
 load_dotenv()
 
 MODEL = os.getenv("OPENAI_MODEL")
-railway_backend_origin = os.getenv("BACKEND_ORIGIN")
+railway_backend_origin = os.getenv("RAILWAY_BACKEND_ORIGIN")
 
 app = FastAPI(title="Maintenance Fault Identification")
 
