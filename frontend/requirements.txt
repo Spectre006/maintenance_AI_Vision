@@ -1,0 +1,2 @@
+# Frontend uses static files served via python http.server
+# No Python dependencies required for MVP.
