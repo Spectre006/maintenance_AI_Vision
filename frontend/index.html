@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maintenance Fault Identification</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="hero__text">
+          <p class="eyebrow">Maintenance Fault Identification</p>
+          <h1>Upload a photo. Get a clear fault summary.</h1>
+          <p class="subtext">
+            Designed for industrial assets across utilities, transport, facilities, and power generation.
+          </p>
+        </div>
+        <div class="hero__badge">
+          <span>Vision AI</span>
+          <span>Fast Review</span>
+          <span>Editable SR Summary</span>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="card upload" aria-labelledby="upload-title">
+          <div class="card__header">
+            <h2 id="upload-title">Image Input</h2>
+            <p>Drag and drop or browse to upload a fault image.</p>
+          </div>
+
+          <label class="dropzone" id="dropzone" for="imageInput">
+            <input id="imageInput" type="file" accept="image/*" />
+            <div class="dropzone__content">
+              <div class="dropzone__icon">▢</div>
+              <div>
+                <strong>Drop image here</strong>
+                <p class="muted">JPG, PNG, or WEBP up to 8 MB</p>
+              </div>
+            </div>
+          </label>
+
+          <div class="preview" id="preview">
+            <img id="previewImage" alt="Preview" />
+            <div class="preview__meta">
+              <span id="fileName">No file selected</span>
+              <span id="fileSize"></span>
+            </div>
+          </div>
+
+          <button class="primary" id="analyzeBtn" disabled>Analyze</button>
+          <p class="helper" id="status">Upload an image to start analysis.</p>
+        </section>
+
+        <section class="card results" aria-labelledby="results-title">
+          <div class="card__header">
+            <h2 id="results-title">SR Summary</h2>
+            <p>AI-generated fault description. Review and edit as needed.</p>
+          </div>
+
+          <div class="result__meta">
+            <div>
+              <span class="label">Confidence</span>
+              <span class="value" id="confidenceValue">--</span>
+            </div>
+            <div>
+              <span class="label">Status</span>
+              <span class="value" id="analysisStatus">Idle</span>
+            </div>
+          </div>
+
+          <textarea
+            id="summary"
+            rows="10"
+            placeholder="SR Summary will appear here after analysis..."
+          ></textarea>
+
+          <div class="chip-row" id="tags"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
