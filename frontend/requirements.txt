@@ -1,2 +1,6 @@
-# Frontend uses static files served via python http.server
-# No Python dependencies required for MVP.
+fastapi==0.115.6
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9
+pillow==10.4.0
+openai==1.61.0
+python-dotenv==1.0.1
