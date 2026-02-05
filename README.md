@@ -45,7 +45,7 @@ python -m http.server 5173
 ```
 
 Open `http://localhost:5173` in your browser if installed in local.
-Open 'https://frontend-production-fde4.up.railway.app/' for installed in Railway.
+Open `https://frontend-production-fde4.up.railway.app` for installed in Railway.
 
 ## API
 `POST /analyze`
@@ -63,7 +63,8 @@ Open 'https://frontend-production-fde4.up.railway.app/' for installed in Railway
 The backend is a standard HTTP API and can be called from any client (web, mobile, or server-to-server).
 
 ### Endpoint
-`POST http://<server-host>:8000/analyze` 
+`POST http://<server-host>:8000/analyze`
+and
 `POST https://backend-production-008fd.up.railway.app/analyze`
 
 ### Parameters
