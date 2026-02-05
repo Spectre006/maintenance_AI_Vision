@@ -58,6 +58,23 @@ Open `http://localhost:5173` in your browser.
 }
 ```
 
+## Integration
+The backend is a standard HTTP API and can be called from any client (web, mobile, or server-to-server).
+
+### Endpoint
+`POST http://<server-host>:8000/analyze`
+
+### Parameters
+- `image` (required): binary file via `multipart/form-data`. Allowed types: JPG/PNG/WEBP. Max size: 8 MB.
+
+### Expected Output
+```json
+{
+  "summary": "Short fault description based on visible evidence in the image.",
+  "confidence": 0.0,
+  "parameters": ["Optional tags or observed indicators"]
+}
+```
+
 ## Notes
 - Images must be JPG/PNG/WEBP and under 8 MB.
-- The backend attempts `responses.create` first, then falls back to `chat.completions` if needed.
